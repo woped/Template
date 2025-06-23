@@ -27,8 +27,9 @@ jobs:
 
   docker_build_and_push:
     uses: woped/devops/.github/workflows/docker-build-and-push.yaml@main
-    # For Java projects:
+    # For Java projects (java_version is optional, 17 is standard):
     # uses: woped/devops/.github/workflows/docker-build-and-push-maven.yaml@main
+    # java_version: '17'
     needs: [ semver, approval ]
     with:
       version: ${{ needs.semver.outputs.VERSION }}
